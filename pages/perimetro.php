@@ -32,11 +32,10 @@ if($lado1==0|| $lado2==0 || $lado3==0){
 }
 else{
     $perimetro = $lado1+ $lado2+ $lado3;
-    $mensagem = "O valor do perimetro é ". $perimetro;
-}
-
-
-    
+    $mensagem = "<p>Lado 1=> " . $_GET["lado1"]."</p>".
+                "<p>Lado 2=> " . $_GET["lado2"]."</p>".
+                "<p>Lado 3=> " . $_GET["lado3"]."</p>".
+                "O valor do perimetro é ". $perimetro;}
 ?>
 
 <!DOCTYPE html>
@@ -52,15 +51,6 @@ else{
 
     <div id="resultado">
 
-        <p>
-            <?= "Lado 1=> ".$_GET["lado1"] ?>
-        </p>
-        <p>
-            <?= "Lado 2=> ".$_GET["lado2"] ?>
-        </p>
-        <p>
-            <?= "Lado 3=> ".$_GET["lado3"] ?>
-        </p>
         <p>
             <?= $mensagem ?>
         </p>
