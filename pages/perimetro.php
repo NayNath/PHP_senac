@@ -20,7 +20,23 @@
 // o '.' é equivalente a o '+'
 // + - *(multiplicação), /(divisão), %(modulo), **(elevado)
 
-$perimetro = $_GET["lado1"]+ $_GET["lado2"]+ $_GET["lado3"];
+$lado1 = filter_input(INPUT_GET,"lado1", FILTER_VALIDATE_FLOAT);
+$lado2 = filter_input(INPUT_GET,"lado2", FILTER_VALIDATE_FLOAT);
+$lado3 = filter_input(INPUT_GET,"lado3", FILTER_VALIDATE_FLOAT);
+
+if($lado1 == false || $lado2== false || $lado3== false){
+    $mensagem = "ERRO: O valor é inválido!!!";
+}
+if($lado1==0|| $lado2==0 || $lado3==0){
+    $mensagem = "ERRO: O valor é inválido!!!";
+}
+else{
+    $perimetro = $lado1+ $lado2+ $lado3;
+    $mensagem = "O valor do perimetro é ". $perimetro;
+}
+
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +50,22 @@ $perimetro = $_GET["lado1"]+ $_GET["lado2"]+ $_GET["lado3"];
 <body>
     <h1> Resultado do perimetro do triângulo</h1>
 
-    <form action="">
-        <div id="resultado">
-        <?php echo"O valor do perimetro desse triângulo é: ".$perimetro."!";?>
-    </form>
-    
+    <div id="resultado">
+
+        <p>
+            <?= "Lado 1=> ".$_GET["lado1"] ?>
+        </p>
+        <p>
+            <?= "Lado 2=> ".$_GET["lado2"] ?>
+        </p>
+        <p>
+            <?= "Lado 3=> ".$_GET["lado3"] ?>
+        </p>
+        <p>
+            <?= $mensagem ?>
+        </p>
+
+        <!--php echo ou = -->
+    </div>
 </body>
 </html>
